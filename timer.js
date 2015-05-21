@@ -21,8 +21,18 @@ function flash(){
 	}
 	else{
 		flashOn = true;
-		$("#clock").css("background-color","red");
+		$("#clock").css("background-color","rgb(250,42,42)");
 	}
+}
+function pad(num){
+	var str = "";
+	
+	if(num <10 && num.length<2)
+		str = "0";
+	else if( num==0)
+		return "00";
+	return str + num;
+	
 }
 function updateTime(){
 	// update model value
@@ -33,17 +43,19 @@ function updateTime(){
 	
 	if(sec<0 && min<0){
 		clearInterval(interval);
-		resumeButton.style.visibility = 'visible';
+		resumeButton.style.visibility = 'hidden';
+		stopButton.style.visibility = 'hidden';
 		resetButton.style.visibility = 'visible';
 		flash();
 		document.title = "Times up!!!";
-		flashInterval = setInterval(flash,1000);
+		flashInterval = setInterval(flash,700);
 		alarmAudio.play();
 		return;
 	}
 	
 	//update UI
-	clock.innerHTML = min + ":" + sec;
+	clock.innerHTML = pad(min) + ":" + pad(sec);
+	
 }
 
 function prepareEventHandlers(){
@@ -70,7 +82,7 @@ function prepareEventHandlers(){
 		secStore = secBox.value;
 		totalSec = (60*minStore) + parseInt(secStore);
 		
-		clock.innerHTML = minStore + ":" + secStore;
+		clock.innerHTML = pad(minStore) + ":" + pad(secStore);
 		
 		resumeButton.style.visibility = 'hidden';
 		stopButton.style.visibility = 'visible';
@@ -94,7 +106,6 @@ function prepareEventHandlers(){
 		
 	};
 	resumeButton.onclick = function(){
-		stopFlash();
 		interval = setInterval(updateTime,1000);
 		resumeButton.style.visibility = 'hidden';
 		resetButton.style.visibility = 'hidden';
@@ -102,9 +113,8 @@ function prepareEventHandlers(){
 	};
 	resetButton.onclick = function(){
 		stopFlash();
-		
-		minBox.value = minStore;
-		secBox.value = secStore;
+		minBox.value = pad(minStore);
+		secBox.value = pad(secStore);
 		//show animation for transition
 		
 		$(".countDown").animate({opacity: 0.25,
@@ -129,7 +139,6 @@ function prepareEventHandlers(){
 	};
 	stopButton.onclick = function(){
 		clearInterval(interval);
-		stopFlash();
 		resumeButton.style.visibility = 'visible';
 		stopButton.style.visibility = 'hidden';
 		resetButton.style.visibility = 'visible';
