@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title id="title">Timer</title>
+		<link rel="stylesheet" type="text/css" href="timer.css">
+	</head>
+	
+	<body>
+		<div class="setTimer">
+			<input class="timeInput" id="minBox" type="text" value="1">
+			m
+			<input class="timeInput" id="secBox" type="text" value="0">
+			s</br>
+			<input id="startButton" type="button" value="start">
+		</div>
+		
+		<div class="countDown">
+			<h1 id="clock">1:00</h1>
+
+			<input class="controlButtons" id="resumeButton" type="button" value="resume">
+			<input class="controlButtons" id="resetButton" type="button" value="reset">
+			<input class="controlButtons" id="stopButton" type="button" value="stop">
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="timer.js"></script>
+	</body>
+</html>
