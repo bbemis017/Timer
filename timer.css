@@ -45,10 +45,10 @@ h1{
 	height: 30;
 }
 #resumeButton,#startButton{
-	background-color: green;
+	background-color: rgb(15,152,15);
 }
 #resetButton,#stopButton{
-	background-color: red;
+	background-color: rgb(235,17,17);
 }
 #startButton, #stopButton{
 	float: right;

@@ -4,14 +4,14 @@ var minStore=1, secStore=0;
 var totalSec=60;
 var flashOn = false;
 //downloaded from soundBible... open domain
-var alarmAudio = new Audio('Clock_Strikes_Twelve.mp3');
+var alarmAudio = new Audio('Short8.mp3');
 
 function stopFlash(){
 	flashOn = false;
 	clearInterval(flashInterval);
 	document.title = "Timer";
 	alarmAudio.pause();
-	alarmAudio = new Audio('Clock_Strikes_Twelve.mp3');
+	
 	$("#clock").css("background-color","rgb(30,30,30)");
 }
 function flash(){
