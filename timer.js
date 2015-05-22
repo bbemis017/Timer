@@ -26,11 +26,12 @@ function flash(){
 }
 function pad(num){
 	var str = "";
-	
-	if(num <10 && num.length<2)
+	if(num <10)
 		str = "0";
 	else if( num==0)
 		return "00";
+	else if(num.length<2)
+		str = "0"
 	return str + num;
 	
 }
@@ -113,8 +114,8 @@ function prepareEventHandlers(){
 	};
 	resetButton.onclick = function(){
 		stopFlash();
-		minBox.value = pad(minStore);
-		secBox.value = pad(secStore);
+		minBox.value = minStore;
+		secBox.value = secStore;
 		//show animation for transition
 		
 		$(".countDown").animate({opacity: 0.25,
