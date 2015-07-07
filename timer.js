@@ -26,7 +26,7 @@ function flash(){
 }
 function pad(num){
 	num = Number(num);
-	if( num < 10)
+	if( num < 10 && num!=0)
 		return "0" + num;
 	if(num==0)
 		return "00";
@@ -75,8 +75,10 @@ function prepareEventHandlers(){
 		//get data and set clock
 		
 		//TODO: error checking here
-		if( secBox.value == 0)
-			secBox = Number(0);
+		if( secBox.value === 0 || secBox.value.length < 1)
+			secBox.value = Number(0);
+		if( minBox.value.length < 1)
+			minBox.value = Number(0);
 		
 		minStore = minBox.value;
 		secStore = secBox.value;
