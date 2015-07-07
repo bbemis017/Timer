@@ -39,7 +39,12 @@ h1{
 	text-align: right;
 	font-size: 75px;
 }
-
+.button {
+	border: 1px solid;
+	border-radius: 3px;
+	font: 700 13px Helvetica, Arial;
+	
+}
 .controlButtons,#startButton{
 	border: 0;
 	width: 80;

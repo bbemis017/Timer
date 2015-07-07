@@ -25,15 +25,12 @@ function flash(){
 	}
 }
 function pad(num){
-	var str = "";
-	if(num <10)
-		str = "0";
-	else if( num==0)
+	num = Number(num);
+	if( num < 10)
+		return "0" + num;
+	if(num==0)
 		return "00";
-	else if(num.length<2)
-		str = "0"
-	return str + num;
-	
+	return num;
 }
 function updateTime(){
 	// update model value
@@ -78,6 +75,8 @@ function prepareEventHandlers(){
 		//get data and set clock
 		
 		//TODO: error checking here
+		if( secBox.value == 0)
+			secBox = Number(0);
 		
 		minStore = minBox.value;
 		secStore = secBox.value;
